@@ -90,7 +90,8 @@ fieldset legend {
   flex-direction: column;
 }
 
-.input-wrapper label {
+.input-wrapper label,
+.checkbox-wrapper label {
   font-size: 14px;
   line-height: 24px;
   color: #4e4958;
@@ -143,4 +144,43 @@ fieldset legend {
 
 .col-3 > div:nth-child(1) {
   width: 100%;
+}
+
+.checkbox-wrapper {
+  position: relative;
+}
+
+.checkbox-wrapper label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+}
+
+.checkbox-wrapper label::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: solid 1px #e6e6f0;
+  border-radius: 8px;
+}
+
+.checkbox-wrapper input:checked + label::before {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgMTEuMTdMMS44MyA3TDAuNDEwMDA0IDguNDFMNiAxNEwxOCAyTDE2LjU5IDAuNTg5OTk2TDYgMTEuMTdaIiBmaWxsPSIjNDJEM0ZGIi8+Cjwvc3ZnPgo=);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkbox-wrapper input:focus + label::before {
+  outline: 2px solid black;
 }
